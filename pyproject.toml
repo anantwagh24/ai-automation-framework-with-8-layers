@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-automation-framework"
+version = "0.1.0"
+description = "Modular AI/QA automation framework (UI, data validation, model eval, drift, explainability, contracts)"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Anant Wagh" }]
+
+dependencies = [
+  "pytest>=8.0",
+  "typer>=0.12.0",
+  "pydantic>=2.7",
+  "pandas>=2.2",
+  "openpyxl>=3.1",
+  "playwright>=1.46",
+  "PyYAML>=6.0.1",
+  "openai>=1.45.0",
+  "tiktoken>=0.7.0",
+  # agentic libs (optional)
+  "autogen-agentchat>=0.2.0",
+  "autogen-ext>=0.2.0",
+]
+
+[project.scripts]
+aiauto = "aiauto.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["aiauto*"]
+exclude = ["tests*", "reports*", "logs*", "files*", "datasets*"]
+
+[tool.setuptools.package-data]
+"aiauto" = ["config/*.yaml"]

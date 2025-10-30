@@ -1,0 +1,32 @@
+project: "CompareAppAgenticAI"
+
+ui:
+  start_url: "https://compare-test.koodoo.io/"
+  headless: true
+  slow_mo_ms: 0
+
+artifacts:
+  reports_dir: "reports"
+  logs_excel: "logs/compare_dialog.xlsx"
+  files_root: "files"
+  keep_browser_open: true
+  end_pause_seconds: 5
+
+thresholds:
+  metrics:
+    f1: ">=0.84"
+    precision: ">=0.85"
+    recall: ">=0.82"
+
+prompts:
+  scenario1_summary: |
+    You are TestingAgent validating Scenario 1 – Direct Entry To Comparison in the Compare app.
+    Goal: complete the remortgage comparison journey end-to-end, based on the provided transcript.
+    Rules: Prefer typing exact labels; if not, click. Keep answers short. Confirm UI progressed each step.
+    Output: Bullet list of actions (Typed/Clicked), assumptions, end state.
+
+rag:
+  ground_truth_file: "datasets/policy_sample.txt"
+  similarity_threshold: 0.85
+  question: "When does my policy expire?"
+

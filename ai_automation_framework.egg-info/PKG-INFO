@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: ai-automation-framework
+Version: 0.1.0
+Summary: Modular AI/QA automation framework (UI, data validation, model eval, drift, explainability, contracts)
+Author: Anant Wagh
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pytest>=8.0
+Requires-Dist: typer>=0.12.0
+Requires-Dist: pydantic>=2.7
+Requires-Dist: pandas>=2.2
+Requires-Dist: openpyxl>=3.1
+Requires-Dist: playwright>=1.46
+Requires-Dist: PyYAML>=6.0.1
+Requires-Dist: openai>=1.45.0
+Requires-Dist: tiktoken>=0.7.0
+Requires-Dist: autogen-agentchat>=0.2.0
+Requires-Dist: autogen-ext>=0.2.0
+
+# AI Automation Framework
+
+## Quickstart
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip setuptools wheel
+pip install -e .
+python -m playwright install chromium
+export OPENAI_API_KEY="sk-your-key"
+aiauto ui-scenario1
